@@ -136,6 +136,7 @@
             transition: all 0.3s ease;
             opacity: 0;
             animation: fadeIn 0.5s forwards;
+            justify-content: center;
         }
 
         @keyframes fadeIn {
@@ -175,7 +176,7 @@
         }
 
         .number-input {
-            width: 120px;
+            width: 50px;
         }
 
         .word-input {
@@ -256,6 +257,11 @@
             <input type="text" id="titleInput" placeholder="Add title">
         </div>
         
+        <!-- New text input for instructions -->
+        <div class="input-title-container">
+            <input type="text" id="instructionsInput" placeholder="Enter instructions for the title">
+        </div>
+
         <!-- Chart of Account Section with Category Selection -->
         <div class="header" onclick="toggleChartOfAccount()">Chart of Account</div>
         
