@@ -176,7 +176,7 @@
         }
 
         .number-input {
-            width: 50px;
+            width: 35px;
         }
 
         .word-input {
@@ -237,6 +237,23 @@
 
         .home-container .created-file:hover {
             color: #4CAF50;
+        }
+
+        /* AI button styling */
+        .ai-button {
+            padding: 8px 12px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .ai-button:hover {
+            background-color: #007B8A;
         }
     </style>
 </head>
@@ -414,7 +431,7 @@
             const numberInput = document.createElement('input');
             numberInput.type = 'number';
             numberInput.classList.add('number-input');
-            numberInput.placeholder = 'Enter number';
+            numberInput.placeholder = 'Enter Number';
 
             const wordInput = document.createElement('input');
             wordInput.type = 'text';
@@ -485,6 +502,82 @@
         function goHome() {
             document.getElementById('generateInterface').style.display = 'none';
             document.getElementById('homePage').style.display = 'block';
+        }
+
+        // Function to add input for selected category
+        function addInput(category) {
+            const inputsContainer = document.getElementById(`${category}Inputs`);
+            const inputGroup = document.createElement('div');
+            inputGroup.classList.add('input-group');
+
+            const numberInput = document.createElement('input');
+            numberInput.type = 'number';
+            numberInput.classList.add('number-input');
+            numberInput.placeholder = 'Enter number';
+
+            const wordInput = document.createElement('input');
+            wordInput.type = 'text';
+            wordInput.classList.add('word-input');
+            wordInput.placeholder = 'Enter description';
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'X';
+            deleteButton.onclick = function() {
+                confirmDelete(inputGroup, inputsContainer);
+            };
+
+            // AI button added
+            const aiButton = document.createElement('button');
+            aiButton.textContent = 'AI'; // AI button added
+            aiButton.classList.add('ai-button'); // Add a class for styling
+            aiButton.onclick = function() {
+                // Placeholder functionality for the AI button
+                alert('AI button clicked');
+            };
+
+            inputGroup.appendChild(numberInput);
+            inputGroup.appendChild(wordInput);
+            inputGroup.appendChild(deleteButton);
+            inputGroup.appendChild(aiButton); // Append the AI button next to the delete button
+            inputsContainer.appendChild(inputGroup);
+        }
+
+        // Function to add a new input for transaction
+        function addTransactionInput() {
+            const transactionInputsContainer = document.getElementById('transactionInputs');
+            const inputGroup = document.createElement('div');
+            inputGroup.classList.add('input-group');
+
+            const numberInput = document.createElement('input');
+            numberInput.type = 'number';
+            numberInput.classList.add('number-input');
+            numberInput.placeholder = 'Enter number';
+
+            const wordInput = document.createElement('input');
+            wordInput.type = 'text';
+            wordInput.classList.add('word-input');
+            wordInput.placeholder = 'Enter description';
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'X';
+            deleteButton.onclick = function() {
+                confirmDelete(inputGroup, transactionInputsContainer);
+            };
+
+            // AI button added
+            const aiButton = document.createElement('button');
+            aiButton.textContent = 'AI'; // AI button added
+            aiButton.classList.add('ai-button'); // Add a class for styling
+            aiButton.onclick = function() {
+                // Placeholder functionality for the AI button
+                alert('AI button clicked');
+            };
+
+            inputGroup.appendChild(numberInput);
+            inputGroup.appendChild(wordInput);
+            inputGroup.appendChild(deleteButton);
+            inputGroup.appendChild(aiButton); // Append the AI button next to the delete button
+            transactionInputsContainer.appendChild(inputGroup);
         }
     </script>
 </body>

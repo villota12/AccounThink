@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Input Buttons</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .input-field {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .circle-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: gray;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="input-field">
+            <input type="text" id="textInput" placeholder="Enter text here">
+            <button class="circle-btn" id="toggleBtn">⚪</button>
+        </div>
+        <button class="circle-btn hidden" id="aiBtn">AI</button>
+        <button class="circle-btn hidden" id="closeBtn">X</button>
+    </div>
+    
+    <script>
+        const toggleBtn = document.getElementById("toggleBtn");
+        const aiBtn = document.getElementById("aiBtn");
+        const closeBtn = document.getElementById("closeBtn");
+        const inputField = document.querySelector(".input-field");
+        const container = document.getElementById("container");
+        
+        toggleBtn.addEventListener("click", () => {
+            aiBtn.classList.toggle("hidden");
+            closeBtn.classList.toggle("hidden");
+            toggleBtn.classList.toggle("hidden");
+        });
+        
+        closeBtn.addEventListener("click", () => {
+            inputField.remove();
+            aiBtn.remove();
+            closeBtn.remove();
+        });
+    </script>
+</body>
+</html>
